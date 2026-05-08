@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유진이 돌잔치 초대장</title>
+    
+    <meta property="og:title" content="유진이의 첫 돌 잔치에 초대합니다">
+    <meta property="og:description" content="2026년 6월 20일 토요일 오후 12시">
+    <meta property="og:image" content="https://hess405.github.io/thumb.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202@1.0/JejuMyeongjo.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/KoPubWorldBatang.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/KoPubWorldDotum.css">
+
+    <style>
+        body, html { margin: 0; padding: 0; width: 100%; background-color: #FDFBF7; color: #4A3F35; overflow-x: hidden; }
+        .container { width: 100%; display: flex; flex-direction: column; align-items: center; }
+        
+        .main-photo { 
+            width: 100%; 
+            aspect-ratio: 1080 / 1260; 
+            background-image: url('baby.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+        }
+        
+        section { width: 100%; box-sizing: border-box; padding: 100px 30px; background-color: #ffffff; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1.2s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+/* [단락 1] 이름 영역: 좌측 정렬로 변경 */
+        .header-area { 
+            text-align: left;           /* 왼쪽 정렬 */
+            margin: 0 auto 80px auto;   /* 하단 여백 유지 */
+            font-family: 'JejuMyeongjo', serif; 
+            max-width: 450px;           /* 본문(info-text) 너비와 맞춰서 정렬 선을 일치시킴 */
+        }
+        
+        .title { 
+            font-size: 42px;            
+            letter-spacing: 5px; 
+            color: #a68b6d; 
+            margin-bottom: 10px; 
+        }
+        
+        .baby-name { 
+            font-size: 30px; 
+            font-weight: bold; 
+            margin: 5px 0;              /* 위아래 간격 살짝 조정 */
+            color: #332d28; 
+        }
+        
+        .sub-title { 
+            font-size: 16px; 
+            letter-spacing: 6px; 
+            color: #888;                /* 서브 타이틀은 살짝 연하게 */
+        }
+
+        .info-text { 
+            font-family: 'KoPubWorldBatang', serif;
+            font-size: 18px; line-height: 2.3; text-align: left; 
+            word-break: keep-all; max-width: 450px; margin: 0 auto 60px auto;
+        }
+
+        /* ✨ 추가된 갤러리 스타일 */
+        .gallery { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); /* 2열로 배치 */
+            gap: 10px; 
+            max-width: 500px; 
+            margin: 0 auto 80px auto; 
+        }
+        .gallery img { 
+            width: 100%; 
+            aspect-ratio: 1 / 1; /* 정사각형으로 통일 */
+            object-fit: cover; 
+            border-radius: 10px; 
+        }
+        /* 세 번째 사진은 아래에 크게 배치하고 싶다면 */
+        .gallery img:nth-child(3) { 
+            grid-column: span 2; 
+            aspect-ratio: 16 / 9; 
+        }
+
+        .details { 
+            font-family: 'KoPubWorldDotum', sans-serif;
+            border-top: 1px solid #e0dcd5; padding-top: 50px; 
+            font-size: 17px; text-align: left; max-width: 450px; 
+            margin: 0 auto; line-height: 2.1; color: #555;
+        }
+        .details strong { color: #a68b6d; font-weight: bold; margin-right: 12px; }
+
+        .map-area { width: 100%; max-width: 600px; margin: 60px auto; border-radius: 15px; overflow: hidden; border: 1px solid #eee; }
+        .map-area img { width: 100%; height: auto; display: block; }
+        
+        .btn-box { 
+            display: flex; gap: 10px; justify-content: center; 
+            padding: 0 10px 100px 10px; font-family: 'KoPubWorldDotum', sans-serif; 
+            max-width: 500px; margin: 0 auto;
+        }
+        .btn { 
+            background-color: #a68b6d; color: white; padding: 16px 10px; 
+            text-decoration: none; border-radius: 40px; font-size: 16px; 
+            font-weight: bold; flex: 1; text-align: center; white-space: nowrap; 
+            display: flex; align-items: center; justify-content: center; min-width: 0; 
+        }
+
+        #music-control { 
+            position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; 
+            background: rgba(74, 63, 53, 0.7); color: white; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="main-photo"></div>
+    <section>
+        <div class="header-area reveal">
+            <div class="title">초대의 글</div>
+            <div class="baby-name">김  유  진</div>
+            <div class="sub-title">돌잔치 초대장</div>
+        </div>
+
+        <div class="info-text reveal">
+            품에 안은 것이 엊그제 같은데,<br>
+            저희 둘째 김유진이 벌써 첫돌을 맞이하게 되었습니다.<br><br>
+            둘째라 조촐하게 가족끼리 보낼까도 생각했지만,<br>
+            그동안 아이가 건강하게 자랄 수 있도록<br>
+	    관심과 사랑을 보내주신 분들께 인사를 전하는 것이<br>
+	    도리라 생각하여 작은 자리를 마련했습니다.<br><br>
+	    귀한 시간 내어주셔서 아이의 첫 생일을 함께 축하해 주시면<br>
+	    더 없는 영광이겠습니다.<br><br>
+	    <strong>아빠</strong> 김홍기       <strong>엄마</strong> 이은주
+        </div>
+
+
+        <div class="details reveal">
+	</div>
+
+
+        <!-- ✨ 사진 갤러리 영역 추가 -->
+        <div class="gallery reveal">
+            <img src="baby1.jpg" alt="유진이 사진 1">
+            <img src="baby2.jpg" alt="유진이 사진 2">
+            <img src="baby3.jpg" alt="유진이 사진 3">
+            <img src="baby4.jpg" alt="유진이 사진 4">
+            <img src="baby5.jpg" alt="유진이 사진 5">
+        </div>
+
+        <div class="details reveal">
+            2026. 06. 20. SAT PM 12:00<br>
+            행복 컨벤션 3층 라일락홀<br>
+            서울 성북구 아리랑로 8
+        </div>
+
+        <div class="map-area reveal">
+            <img src="map.jpg" alt="약도">
+        </div>
+
+        <div class="btn-box reveal">
+            <a href="tel:010-0000-0000" class="btn">문의하기</a>
+            <a href="https://naver.me/xmxIT5V0" target="_blank" class="btn" style="background-color: #4A3F35;">오시는 길</a>
+        </div>
+    </section>
+</div>
+
+<audio id="bgm" loop preload="auto"><source src="bgm.mp3" type="audio/mpeg"></audio>
+<div id="music-control" onclick="toggleMusic()"><span id="music-icon">🎵</span></div>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    function playMusic() {
+        const audio = document.getElementById("bgm");
+        const icon = document.getElementById("music-icon");
+        if (audio.paused) {
+            audio.play().then(() => { icon.innerText = "⏸️"; }).catch(e => {});
+        }
+    }
+
+    window.addEventListener('scroll', playMusic, { once: true });
+    window.addEventListener('click', playMusic, { once: true });
+    window.addEventListener('touchstart', playMusic, { once: true });
+
+    function toggleMusic() {
+        var audio = document.getElementById("bgm");
+        var icon = document.getElementById("music-icon");
+        if (audio.paused) { audio.play(); icon.innerText = "⏸️"; } 
+        else { audio.pause(); icon.innerText = "🎵"; }
+    }
+</script>
+</body>
+</html>
