@@ -112,7 +112,36 @@
             background: rgba(74, 63, 53, 0.7); color: white; border-radius: 50%; 
             display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 1000;
         }
-    </style>
+
+.parents-info {
+    margin-bottom: 20px; /* 본문 문구와의 간격 */
+    font-family: 'KoPubWorldDotum', sans-serif; /* 이름은 조금 더 또렷한 돋움체 추천 */
+    font-size: 18px;
+    color: #4A3F35;
+}
+.parents-info strong {
+    color: #a68b6d;
+    margin-right: 5px;
+}
+.parents-info span {
+    margin-right: 25px; /* 이름 사이의 간격 */
+}
+    
+/* 팝업(모달) 전체 화면 스타일 */
+#photo-modal {
+    display: none; position: fixed; z-index: 2000; top: 0; left: 0;
+    width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);
+    justify-content: center; align-items: center; cursor: zoom-out;
+}
+/* 팝업 안에 뜨는 이미지 스타일 */
+#photo-modal img { 
+    max-width: 95%; max-height: 90%; 
+    border-radius: 5px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.5); 
+}
+
+
+</style>
 </head>
 <body>
 
@@ -135,8 +164,15 @@
 	    작은 자리를 마련했습니다.<br><br>
 	    귀한 시간 내어주셔서 아이의 첫 생일을 함께 축하해 주시면<br>
 	    더 없는 영광이겠습니다.<br><br>
-	    <strong>아빠</strong> 김홍기       <strong>엄마</strong> 이은주
+
+	<div class="parents-info">
+	<strong>아빠</strong> 김홍기 <span></span> <strong>엄마</strong> 이은주
+	</div>
         </div>
+
+
+	    
+
 
 
         <div class="details reveal">
@@ -145,11 +181,11 @@
 
         <!-- ✨ 사진 갤러리 영역 추가 -->
         <div class="gallery reveal">
-            <img src="baby1.jpg" alt="유진이 사진 1">
-            <img src="baby2.jpg" alt="유진이 사진 2">
-            <img src="baby3.jpg" alt="유진이 사진 3">
-            <img src="baby4.jpg" alt="유진이 사진 4">
-            <img src="baby5.jpg" alt="유진이 사진 5">
+            <img src="baby1.jpg" onclick="openModal(this.src)" alt="유진이 사진 1">
+            <img src="baby2.jpg" onclick="openModal(this.src)" alt="유진이 사진 2">
+            <img src="baby3.jpg" onclick="openModal(this.src)" alt="유진이 사진 3">
+            <img src="baby4.jpg" onclick="openModal(this.src)" alt="유진이 사진 4">
+            <img src="baby5.jpg" onclick="openModal(this.src)" alt="유진이 사진 5">
         </div>
 
         <div class="details reveal">
@@ -169,10 +205,34 @@
     </section>
 </div>
 
+
+
+
 <audio id="bgm" loop preload="auto"><source src="bgm.mp3" type="audio/mpeg"></audio>
 <div id="music-control" onclick="toggleMusic()"><span id="music-icon">🎵</span></div>
 
+<!-- 클릭 시 이미지가 보여질 빈 방을 만드는 것과 같습니다 -->
+<div id="photo-modal" onclick="closeModal()">
+    <img id="modal-img" src="">
+</div>
+
+
 <script>
+
+// 팝업 열기 함수
+function openModal(src) {
+    document.getElementById("photo-modal").style.display = "flex";
+    document.getElementById("modal-img").src = src;
+    document.body.style.overflow = "hidden"; // 팝업 떴을 때 뒤에 스크롤 안 되게 막기
+}
+
+// 팝업 닫기 함수
+function closeModal() {
+    document.getElementById("photo-modal").style.display = "none";
+    document.body.style.overflow = "auto"; // 스크롤 다시 허용
+}
+
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('active');
