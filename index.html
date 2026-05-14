@@ -53,13 +53,13 @@
     /* [3] 헤더 영역 (제주명조 적용) */
     .header-area { 
         text-align: left; 
-        margin: 0 auto 80px auto; 
+        margin: 0 auto 50px auto; 
         font-family: 'JejuMyeongjo', serif; 
         max-width: 450px; 
     }
     
     .title { 
-        font-size: 42px; 
+        font-size: 25px; 
         letter-spacing: 5px; 
         color: #a68b6d; 
         margin-bottom: 10px; 
@@ -68,7 +68,7 @@
     .baby-name { 
         font-size: 30px; 
         font-weight: bold; 
-        margin: 5px 0 30px 0;
+        margin: 5px 0 20px 0;
         color: #332d28; 
     }
     
@@ -78,11 +78,19 @@
         color: #888; 
     }
 
+/* 돌잔치 글자만 별도로 설정 */
+.event-name {
+    font-size: 20px;       /* 김지훈(30px)보다 작은 크기 */
+    font-weight: normal;   /* 조금 더 가늘게 하고 싶다면 추가 (선택사항) */
+    color: #666;           /* 색상도 살짝 연하게 하면 이름이 더 돋보여요 */
+    margin-left: 10px;     /* 이름과의 간격 살짝 띄우기 */
+}
+
     /* [4] 인사말 본문 (코펍바탕 적용) */
     .info-text { 
         font-family: 'KoPubWorldBatang', serif;
         font-size: 18px; 
-        line-height: 2.3; 
+        line-height: 2.0; 
         text-align: left; 
         word-break: keep-all; 
         max-width: 450px; 
@@ -167,13 +175,14 @@
     <div class="main-photo"></div>
     <section>
         <div class="header-area reveal">
-            <div class="baby-name">김  유  진 돌 잔 치</div>
+            <div class="baby-name">김  유  진 <span class="event-name">돌 잔 치</span>
+	    </div>
             <div class="title">초대의 글</div>
         </div>
 
         <div class="info-text reveal">
             품에 안은 것이 엊그제 같은데,<br>
-            저희 둘째 김유진이 벌써 첫돌을 맞이하게 되었습니다.<br><br>
+            저희 둘째 유진이가 벌써 첫돌을 맞이하게 되었습니다.<br><br>
             둘째라 조촐하게 가족끼리 보낼까도 생각했지만,<br>
             그동안 아이가 건강하게 자랄 수 있도록<br>
 	    관심과 사랑을 보내주신 분들께<br>
